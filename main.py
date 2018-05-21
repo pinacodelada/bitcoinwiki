@@ -12,9 +12,6 @@ app.config.from_object(__name__)
 pages = FlatPages(app)
 freezer = Freezer(app)
 
-if __name__ == '__main__':
-  app.run()
-
 @app.route('/')
 def index():
     return render_template('index.html', pages=pages)
