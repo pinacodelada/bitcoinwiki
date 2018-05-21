@@ -10,7 +10,7 @@ FLATPAGES_EXTENSION = '.md'
 app = Flask(__name__)
 app.config.from_object(__name__)
 pages = FlatPages(app)
-freezer = Freezer(app)
+# freezer = Freezer(app) # for generating static flask site
 
 @app.route('/')
 def index():
@@ -26,6 +26,6 @@ def tag(tag):
     tagged = [p for p in pages if tag in p.meta.get('tags', [])]
     return render_template('tag.html', pages=tagged, tag=tag)
 
-@app.cli.command()
-def freeze():
-    freezer.freeze()
+#@app.cli.command()
+#def freeze():
+#    freezer.freeze()
