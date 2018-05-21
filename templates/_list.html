@@ -1,15 +1,15 @@
-<ul>
-    {% for page in pages %}
-        <li>
-            <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
-        {% if page.meta.tags|length %}
-            | Tagged:
-            {% for page_tag in page.meta.tags %}
-                <a href="{{ url_for("tag", tag=page_tag) }}">{{ page_tag }}</a>
-            {% endfor %}
-        {% endif %}
-        </li>
-    {% else %}
-        <li>No page.</li>
-    {% endfor %}
-    </ul>
+ {% for page in pages %}
+<div class="blog-post">
+    <h2 class="blog-post-title">Sample blog post</h2>
+    <p class="blog-post-meta">January 1, 2014</p>
+    <a href="{{ url_for('page', path=page.path) }}">Read More {{ page.title }}</a>
+
+    {% if page.meta.tags|length %} | Tagged: {% for page_tag in page.meta.tags %}
+    <a href="{{ url_for('tag', tag=page_tag) }}">{{ page_tag }}</a>
+    {% endfor %} {% endif %}
+
+    {{ page.html|safe }}
+</div>
+{% else %}
+No page.
+{% endfor %}

@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h2>{{ page.title }}</h2>
-    {{ page.html|safe }}
-{% endblock content %}
+{% extends "base.html" %} {% block content %}
+<h2 class="blog-post-title">{{ page.title }}</h2>
+<p class="blog-post-meta">{{ page.date }}</p>
+{{ page.html|safe }} {% endblock content %}
